@@ -2,6 +2,7 @@ package com.telly.controllers;
 
 import java.security.Principal;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 
+
 	@RequestMapping("/login")
 	public String showLogin() {
 		return "login";
@@ -32,6 +34,7 @@ public class UserController {
 		return "loggedout";
 	}
 
+
 	@RequestMapping("/createaccount")
 	public String createAccount(Model model, Principal principal) {
 
@@ -39,10 +42,11 @@ public class UserController {
 
 		return "createaccount";
 	}
-	@RequestMapping(value = "/createuser", method = RequestMethod.POST)
 
+	@RequestMapping(value = "/createuser", method = RequestMethod.POST)
 	public String createUser(@Validated(FormValidationGroup.class) User user, BindingResult result) {
-		if(result.hasErrors()) {
+
+		if (result.hasErrors()) {
 			return "createaccount";
 		}
 
@@ -54,14 +58,4 @@ public class UserController {
 		return "home";
 
 	}
-
-
-
-
-
-
-
 }
-
-
-
