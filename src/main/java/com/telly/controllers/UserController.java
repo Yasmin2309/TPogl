@@ -79,6 +79,7 @@ public class UserController {
 		return "home";
 
 	}
+	
 	@RequestMapping(value = "/getreservations", method = RequestMethod.GET)
 	public String getReserveBook(@Validated(FormValidationGroup.class) Reserve reserve, Model model, Principal principal) {
 
@@ -94,8 +95,6 @@ public class UserController {
 		return "home";
 
 	}
-	
-
 	
 
 }
